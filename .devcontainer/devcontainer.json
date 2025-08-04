@@ -1,0 +1,48 @@
+{
+	"name": "Kraken Development Environment",
+	"build": {
+		"dockerfile": "../Dockerfile",
+		"context": "..",
+		"platform": "linux/amd64"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-vscode.cmake-tools",
+				"ms-vscode.makefile-tools",
+				"ms-vscode.hexeditor",
+				"ms-vscode.bash-debug",
+				"ms-vscode.shellcheck"
+			],
+			"settings": {
+				"C_Cpp.default.compilerPath": "/usr/bin/g++",
+				"C_Cpp.default.cStandard": "c17",
+				"C_Cpp.default.cppStandard": "c++17",
+				"C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+				"C_Cpp.default.includePath": [
+					"${workspaceFolder}/src/**"
+				],
+				"files.associations": {
+					"*.hpp": "cpp",
+					"*.cpp": "cpp",
+					"*.h": "c",
+					"*.c": "c",
+					"*.sh": "shellscript",
+					"*.pl": "perl"
+				},
+				"terminal.integrated.defaultProfile.linux": "bash"
+			}
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+	"postCreateCommand": "cd /code/src && make clean && make all",
+	"remoteUser": "root",
+	"runArgs": ["--platform=linux/amd64"],
+	"workspaceMount": "source=${localWorkspaceFolder},target=/code,type=bind,consistency=cached",
+	"workspaceFolder": "/code"
+} 
