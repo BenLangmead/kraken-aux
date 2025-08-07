@@ -42,7 +42,11 @@
 	},
 	"postCreateCommand": "cd /code/src && make clean && make all",
 	"remoteUser": "root",
-	"runArgs": ["--platform=linux/amd64"],
+	"runArgs": [
+		"--platform=linux/amd64",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt", "seccomp=unconfined"
+		],
 	"workspaceMount": "source=${localWorkspaceFolder},target=/code,type=bind,consistency=cached",
 	"workspaceFolder": "/code"
 } 

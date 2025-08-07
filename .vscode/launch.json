@@ -11,16 +11,16 @@
             "cwd": "${workspaceFolder}/src",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "gdb",
+            "MIMode": "lldb",
+            "preLaunchTask": "build-test-kraken",
+            "miDebuggerPath": "/usr/bin/lldb",
             "setupCommands": [
                 {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
+                    "description": "Enable pretty-printing for lldb",
+                    "text": "settings set target.print-object-description true",
                     "ignoreFailures": true
                 }
-            ],
-            "preLaunchTask": "build-test-kraken",
-            "miDebuggerPath": "/usr/bin/gdb"
+            ]
         },
         {
             "name": "Debug test_kraken (no build)",
@@ -32,15 +32,15 @@
             "cwd": "${workspaceFolder}/src",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "gdb",
+            "MIMode": "lldb",
+            "miDebuggerPath": "/usr/bin/lldb",
             "setupCommands": [
                 {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
+                    "description": "Enable pretty-printing for lldb",
+                    "text": "settings set target.print-object-description true",
                     "ignoreFailures": true
                 }
-            ],
-            "miDebuggerPath": "/usr/bin/gdb"
+            ]
         }
     ]
 } 
