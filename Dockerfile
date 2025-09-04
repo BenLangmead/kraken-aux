@@ -2,7 +2,7 @@ FROM --platform=linux/x86_64 gcc:12
 
 # Install build-essential (includes g++, gcc, make, etc.)
 RUN apt-get update && \
-    apt-get install -y emacs locales bsdmainutils && \
+    apt-get install -y emacs locales bsdmainutils bc gdb lldb && \
     sed -i 's/^# *\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen && \
     locale-gen en_US.UTF-8 && \
     update-locale LANG=en_US.UTF-8 && \
